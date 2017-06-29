@@ -11,10 +11,20 @@
     float: left;
     width: 220px;
     background-color: #fbfafa;
+    z-index: 5;
     @include breakpoint(max-width 660px) {
       position: absolute;
-      z-index: 3;
+      /*z-index: 3;*/
       left: -100%;
+      @include transition(0.4s);
+    }
+  }
+  &__tollbar.show {
+    @include breakpoint(max-width 660px) {
+      position: absolute;
+      left: 0;
+      @include transition(0.4s);
+      z-index: 5;
     }
   }
   &__avatar {
@@ -151,6 +161,27 @@
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%;
     z-index: 2;
+  }
+  &__add-element{
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 44px;
+    margin-bottom: 75px;
+    > p{
+      display: block;
+      position: relative;
+      float: left;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: 35px;
+      margin-right: 31px;
+      color: #040000;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 33px;
+    }
   }
   &__remove-pkg {
     display: block;
@@ -425,6 +456,9 @@
       color: #4c5b69;
       font-size: 21px;
       font-weight: 400;
+      @include breakpoint(max-width 660px){
+        margin-top: 60px;
+      }
     }
     > p {
       position: relative;
@@ -446,6 +480,41 @@
         -webkit-background-size: 100% 100%;
         background-size: 100% 100%;
       }
+    }
+  }
+  &__trigger{
+    display: none;
+    position: absolute;
+    top: 13px;
+    left: 16px;
+    width: 30px;
+    height: 46px;
+    overflow: hidden;
+    @include transition(0.4s);
+    img{
+      size: 100%;
+      object-fit: contain;
+    }
+    @include breakpoint(max-width 660px){
+      display: block;
+    }
+  }
+  &__trigger.show{
+    display: none;
+    position: absolute;
+    top: 13px;
+    left: calc(16px + 220px);
+    width: 30px;
+    height: 46px;
+    overflow: hidden;
+    @include transition(0.4s);
+    img{
+      size: 100%;
+      object-fit: contain;
+      transform: rotate(180deg);
+    }
+    @include breakpoint(max-width 660px){
+      display: block;
     }
   }
   &__owner-tools {
@@ -529,6 +598,9 @@
     padding-left: 14px;
     padding-right: 17px;
     @include box-sizing(border-box);
+    @include breakpoint(max-width 1024px) {
+      height: auto;
+    }
     @include breakpoint(max-width 660px) {
       width: 100%;
       height: auto;
@@ -773,6 +845,20 @@
     }
     .business__sm-item--views:before {
       top: 3px;
+    }
+    .business__tab-links{
+      @include justify-content(flex-start);
+      padding-left: 23px;
+      @include box-sizing(border-box);
+      li{
+        a{
+          font-size: 13px;
+          font-weight: 700;
+        }
+      }
+    }
+    .business__tab-content--wrapper {
+      height: 450px;
     }
   }
   &__statistics {
@@ -1090,12 +1176,71 @@
     position: relative;
     float: left;
     width: 100%;
-    padding-left: 12px;
-    padding-top: 28px;
+    padding-left: 34px;
+    padding-top: 0;
     @include box-sizing(border-box);
+    > p {
+      display: block;
+      position: relative;
+      float: left;
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #000000;
+      font-size: 13px;
+      font-weight: 400;
+    }
+    .social-wrap__item{
+      width: 24px;
+      height: 23px;
+      img{
+        width: 11px;
+        height: 11px;
+        -o-object-fit: contain;
+        object-fit: contain;
+        position: relative;
+        top: 29%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
     @include breakpoint(max-width 600px) {
       padding-left: 12px;
       padding-right: 12px;
+    }
+    .row-soc{
+     .check-button {
+        margin-top: 10px;
+      }
+      &__add{
+        display: block;
+        position: relative;
+        float: left;
+        margin-left: 206px;
+        margin-top: 15px;
+        width: 21px;
+        height: 21px;
+        border-radius: 50%;
+        background-color: transparent;
+        padding: 0;
+        border: none;
+       /* overflow: hidden;*/
+        background-image: url('../img/icons/add-pkg-icon.png');
+        background-repeat: no-repeat;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+        z-index: 2;
+        > span{
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 24px;
+          color: #000000;
+          font-size: 13px;
+          font-weight: 400;
+        }
+      }
     }
     .business__sm-item {
       width: 212px;
@@ -1358,22 +1503,17 @@
       top: 0;
       right: 0;
     }
-    /*.cabinet__add-field{
-      display: block;
+    .separator {
+      top: 0;
+      left: 0;
+      width: 80%;
+      height: 1px;
+      background-color: rgba(0,1,2,0.33);
+      z-index: 1;
       position: relative;
       float: left;
-      margin-left: 14px;
-      margin-top: 5px;
-      width: 21px;
-      height: 21px;
-      border-radius: 50%;
-      overflow: hidden;
-      background-image: url('../img/icons/add-pkg-icon.png');
-      background-repeat: no-repeat;
-      -webkit-background-size: 100% 100%;
-      background-size: 100% 100%;
-      z-index: 2;
-    }*/
+      margin-bottom: 39px;
+    }
     &--wrapper {
       @include display-flex(flex);
       @include flex-wrap(wrap);
@@ -1491,7 +1631,7 @@
       position: relative;
       float: left;
       width: 43px;
-      height: 39px;
+      /*height: 39px;*/
       margin-right: 50px;
       margin-bottom: 40px;
       cursor: pointer;
