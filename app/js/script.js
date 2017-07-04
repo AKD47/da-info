@@ -77,14 +77,17 @@ $(document).ready(function () {
     $(document).on('click', '#authorized-user-profile', function (event) {
        event.preventDefault();
        var submenu = $(this).closest('form').find('.currency-panel__submenu');
-       console.log( submenu );
-        if($(this).hasClass('show')){
+       /*console.log( submenu );*/
+        /*if($(this).hasClass('show')){
             $(this).removeClass('show');
             submenu.slideUp('500');
         } else {
             $(this).addClass('show');
             submenu.slideDown('500');
-        }
+        }*/
+        $(this).toggleClass('show');
+        submenu.slideToggle();
+        return false;
     });
     $(document).on('click', function (e) {
         if ($(e.target).closest('#authorized-user-profile').length != 1) {
@@ -899,10 +902,11 @@ $(document).ready(function () {
         event.preventDefault();
         var wrapper = $(this).closest('.cabinet__add-company-form--wrapper').next('.cabinet__add-company-form--hover-wrapper'),//влок в который добовляются поля
         // addedBox = $(this).closest('.cabinet__add-company-form').find('.cabinet__add-company-form--wrapper').html(),//элементы, которые добавляются
-            count = wrapper.attr('data-count');//счетчик
-
+            count = wrapper.attr('data-count'),//счетчик
+            maxCount = $(this).attr('max-count');//максимальное количество полей
+            /*console.log( maxCount );*/
         /* console.log( addedBox );*/
-        if (count < 5) { //условие на максимум 10 полей
+        if (count < maxCount) { //условие 
             $(this).closest('.cabinet__add-company-form--wrapper').next('.cabinet__add-company-form--hover-wrapper').attr('data-count', parseInt(count) + 1);//увеличиваем счетчик на 1
             $(wrapper).append('<div class="cabinet__add-company-form--hover-elements">' +
                 '<p class="cabinet__add-company-form--title"></p>' +
@@ -1074,7 +1078,7 @@ function fixedScroll(element, elementPosition, blockElement) {//функция �
         height = element.outerHeight();//высота элемента, включающая внутренние и внешние отступы
     if (window.innerWidth > 1200) {
         if (top > elementPosition && top < blockingElement - height) {
-            element.addClass('fixed').removeAttr('style').removeClass('');
+            element.addClass('fixed').removeClass('absolute');
         }
         else if (top > blockingElement - height) {
             element.removeClass('fixed').addClass('absolute')/*.css({'position': 'absolute', 'bottom': '50px', 'right': '0'})*/;
