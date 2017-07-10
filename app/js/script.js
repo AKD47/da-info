@@ -21,7 +21,7 @@ if ($('#map').length > 0) {
 }
 
 $(document).ready(function () {
-   
+
     /*hamburger*/
     var windowWidth = $(window).width();
 
@@ -72,19 +72,19 @@ $(document).ready(function () {
         $(".sandwich").toggleClass("active");
     });
     /*hamburger-news*/
-    
+
     /*show authorize submenu*/
     $(document).on('click', '#authorized-user-profile', function (event) {
-       event.preventDefault();
-       var submenu = $(this).closest('form').find('.currency-panel__submenu');
-       /*console.log( submenu );*/
+        event.preventDefault();
+        var submenu = $(this).closest('form').find('.currency-panel__submenu');
+        /*console.log( submenu );*/
         /*if($(this).hasClass('show')){
-            $(this).removeClass('show');
-            submenu.slideUp('500');
-        } else {
-            $(this).addClass('show');
-            submenu.slideDown('500');
-        }*/
+         $(this).removeClass('show');
+         submenu.slideUp('500');
+         } else {
+         $(this).addClass('show');
+         submenu.slideDown('500');
+         }*/
         $(this).toggleClass('show');
         submenu.slideToggle();
         return false;
@@ -389,10 +389,10 @@ $(document).ready(function () {
     });
     /*send message modal validation*/
     /*var validMassage = new Validation();
-    validMassage.init({
-        classItem: 'valid',
-        eventElement: '#send-message-submit'
-    });*/
+     validMassage.init({
+     classItem: 'valid',
+     eventElement: '#send-message-submit'
+     });*/
     /*close send message modal validation*/
     /*close send message modal*/
 
@@ -533,9 +533,9 @@ $(document).ready(function () {
     /* close tabs */
 
     /* komunalka */
-    $(".komunalka__item").hover(function (e) {
+    $('.komunalka__item').hover(function (e) {
         e.preventDefault();
-        $(".komunalka__item").removeClass('komunalka__line_active');
+        $('.komunalka__item').removeClass('komunalka__line_active');
         $(this).addClass('komunalka__line_active');
     });
     /* komunalka */
@@ -574,18 +574,18 @@ $(document).ready(function () {
 
     /*datapicker*/
     $(document).on('click', '.datepicker-wrap', function () {
-            $('.datepicker-inline').slideToggle();
+        $('.datepicker-inline').slideToggle();
     });
     $('.datepicker-wrap').datepicker({
-      inline: false,
-        onShow: function(dp, animationCompleted){
+        inline: false,
+        onShow: function (dp, animationCompleted) {
             if (!animationCompleted) {
                 log('start showing')
             } else {
                 log('finished showing')
             }
         },
-        onHide: function(dp, animationCompleted){
+        onHide: function (dp, animationCompleted) {
             if (!animationCompleted) {
                 log('start hiding')
             } else {
@@ -802,7 +802,17 @@ $(document).ready(function () {
         });
     }
     /*close social sidebar scroll*/
-    
+
+    /*parser sidebar scroll*/
+    var parserElement = $('#parser-sidebar');
+    if (parserElement.length > 0) {
+        var parserElementPosition = parserElement.offset().top;
+        $(window).scroll(function () {
+            fixedScroll(parserElement, parserElementPosition, $('.footer'));
+        });
+    }
+    /*close single business sidebar scroll*/
+
     /*show business reviews*/
     $(document).on('click', '.business__reviews--item .links__more', function () {
         event.preventDefault();
@@ -903,8 +913,8 @@ $(document).ready(function () {
         var wrapper = $(this).closest('.cabinet__add-company-form--wrapper').next('.cabinet__add-company-form--hover-wrapper'),//влок в который добовляются поля
         // addedBox = $(this).closest('.cabinet__add-company-form').find('.cabinet__add-company-form--wrapper').html(),//элементы, которые добавляются
             count = wrapper.attr('data-count'),//счетчик
-            maxCount = $(this).attr('max-count');//максимальное количество полей
-            /*console.log( maxCount );*/
+            maxCount = parseInt($(this).attr('max-count'));//максимальное количество полей
+        /*console.log( maxCount );*/
         /* console.log( addedBox );*/
         if (count < maxCount) { //условие 
             $(this).closest('.cabinet__add-company-form--wrapper').next('.cabinet__add-company-form--hover-wrapper').attr('data-count', parseInt(count) + 1);//увеличиваем счетчик на 1
@@ -918,48 +928,44 @@ $(document).ready(function () {
 
     });
     /*$(document).on('click', '.cabinet__add-company-form--hover-wrapper .cabinet__remove-pkg', function (event) {
-        event.preventDefault();
-        var wrapper = $(this).closest('.cabinet__add-company-form--hover-wrapper'),//влок в который добовляются поля
-            addedBox = $(this).closest('.cabinet__add-company-form--hover-elements'),//элементы, которые добавляются
-            count = wrapper.attr('data-count');//счетчик
-        addedBox.remove();
-        wrapper.attr('data-count', parseInt(count) - 1);//увеличиваем счетчик на 1
-    });*/
+     event.preventDefault();
+     var wrapper = $(this).closest('.cabinet__add-company-form--hover-wrapper'),//влок в который добовляются поля
+     addedBox = $(this).closest('.cabinet__add-company-form--hover-elements'),//элементы, которые добавляются
+     count = wrapper.attr('data-count');//счетчик
+     addedBox.remove();
+     wrapper.attr('data-count', parseInt(count) - 1);//увеличиваем счетчик на 1
+     });*/
     /*close form fields user cabinet companys*/
 
     /*add form fields in user cabinet*/
     /*$(document).on('click', '.cabinet__add-company-form--wrapper .cabinet__add-pkg', function (event) {
-        event.preventDefault();
-       /!* console.log( 111 );*!/
-        var wrapper = $(this).closest('.cabinet__add-company-form--wrapper').next('.cabinet__add-company-form--hover-wrapper'),//влок в который добовляются поля
-        // addedBox = $(this).closest('.cabinet__add-company-form').find('.cabinet__add-company-form--wrapper').html(),//элементы, которые добавляются
-            count = wrapper.attr('data-count');//счетчик
+     event.preventDefault();
+     /!* console.log( 111 );*!/
+     var wrapper = $(this).closest('.cabinet__add-company-form--wrapper').next('.cabinet__add-company-form--hover-wrapper'),//влок в который добовляются поля
+     // addedBox = $(this).closest('.cabinet__add-company-form').find('.cabinet__add-company-form--wrapper').html(),//элементы, которые добавляются
+     count = wrapper.attr('data-count');//счетчик
 
-        /!* console.log( addedBox );*!/
-        if (count < 5) { //условие на максимум 10 полей
-            $(this).closest('.cabinet__add-company-form--wrapper').next('.cabinet__add-company-form--hover-wrapper').attr('data-count', parseInt(count) + 1);//увеличиваем счетчик на 1
-            $(wrapper).append('<div class="cabinet__add-company-form--hover-elements">' + 
-                '<p class="cabinet__add-company-form--title">Категория</p>' +
-                '<select class="cabinet__add-company-form--field" name="" id="form-select">' +
-                '<option value="1"></option>' +
-                '<option value="2"></option>' +
-                '<option value="3"></option>' +
-                '<option value="4"></option>' +
-                '<option value="5"></option>' +
-                '</select>' +                
-                '<a href="#" class="cabinet__remove-pkg"></a>' /!*+
-                '<p class="cabinet__add-company-form--notice"></p>'*!/ +
-                '</div>');//добавляем поля
-        }
+     /!* console.log( addedBox );*!/
+     if (count < 5) { //условие на максимум 10 полей
+     $(this).closest('.cabinet__add-company-form--wrapper').next('.cabinet__add-company-form--hover-wrapper').attr('data-count', parseInt(count) + 1);//увеличиваем счетчик на 1
+     $(wrapper).append('<div class="cabinet__add-company-form--hover-elements">' + 
+     '<p class="cabinet__add-company-form--title">Категория</p>' +
+     '<select class="cabinet__add-company-form--field" name="" id="form-select">' +
+     '<option value="1"></option>' +
+     '<option value="2"></option>' +
+     '<option value="3"></option>' +
+     '<option value="4"></option>' +
+     '<option value="5"></option>' +
+     '</select>' +                
+     '<a href="#" class="cabinet__remove-pkg"></a>' /!*+
+     '<p class="cabinet__add-company-form--notice"></p>'*!/ +
+     '</div>');//добавляем поля
+     }
 
-    });*/
+     });*/
     $(document).on('click', '.cabinet__add-company-form--hover-wrapper .cabinet__remove-pkg', function (event) {
         event.preventDefault();
-        var wrapper = $(this).closest('.cabinet__add-company-form--hover-wrapper'),//влок в который добовляются поля
-            addedBox = $(this).closest('.cabinet__add-company-form--hover-elements'),//элементы, которые добавляются
-            count = wrapper.attr('data-count');//счетчик
-        addedBox.remove();
-        wrapper.attr('data-count', parseInt(count) - 1);//увеличиваем счетчик на 1
+        removeField($(this));
     });
     /*close add form fields in user cabinet*/
 
@@ -987,27 +993,51 @@ $(document).ready(function () {
 
     /*show mobile cabinet toolbar*/
     $(document).on('click', '#cabinet--mobile-trigger', function (event) {
-       event.preventDefault();
-       var tollbar = $('.cabinet__tollbar');
-       if($(this).hasClass('show')){
-           $(this).removeClass('show');
-           tollbar.removeClass('show');
-       } else{
-           $(this).addClass('show');
-           tollbar.addClass('show');
-           /*$('#black-overlay').fadeIn(400);*/
-       }
-       /*if(window.innerWidth < 661){
-           $(document).on('click', function (e) {
-               if ($(e.target).closest('.cabinet__tollbar').length != 1) {
-                   $('.cabinet__tollbar').removeClass('show');                   
-                   $('#cabinet--mobile-trigger').removeClass('show');                   
-               }
-           });
-       } */
+        event.preventDefault();
+        var tollbar = $('.cabinet__tollbar');
+        if ($(this).hasClass('show')) {
+            $(this).removeClass('show');
+            tollbar.removeClass('show');
+        } else {
+            $(this).addClass('show');
+            tollbar.addClass('show');
+            /*$('#black-overlay').fadeIn(400);*/
+        }
+        /*if(window.innerWidth < 661){
+         $(document).on('click', function (e) {
+         if ($(e.target).closest('.cabinet__tollbar').length != 1) {
+         $('.cabinet__tollbar').removeClass('show');                   
+         $('#cabinet--mobile-trigger').removeClass('show');                   
+         }
+         });
+         } */
     });
     /*close mobile cabinet toolbar*/
-    
+
+    /*show cabinet tariff description*/
+    $(document).on('click', '.cabinet__packages--about', function (event) {
+        event.preventDefault();
+        var target = $(this).attr('href'),
+            targetBlock = $(target),
+            top = $('.cabinet__packages--notification').offset().top;
+            /*console.log( top );*/
+
+        if ($(this).hasClass('open')) {
+            targetBlock.slideUp();
+            $(this).removeClass('open');
+        } else {
+            $('.cabinet__packages--about').removeClass('open');
+            $('.cabinet__packages--hover-block').slideUp();
+            targetBlock.slideDown();
+            $(this).addClass('open');
+            if($('.cabinet__packages--notification').length > 0){
+                $('html, body').animate({scrollTop: top}, 'slow');
+            }            
+        }
+        
+    });
+    /*close script*/
+
     /*search form option select*/
     $(document).on('click', '.js-search-option', function (event) {
         event.preventDefault();
@@ -1055,6 +1085,62 @@ $(document).ready(function () {
         readURL(this);
     });
     /*close show upload img prev in cabinet*/
+
+    /*show parser text*/
+    $(document).on('click', '.parser__element--more', function () {
+        event.preventDefault();
+        var text = $(this).prev('.parser__element--descr');
+
+        if (text.length > 0) {
+            $(this).hide();
+            text.removeClass('parser__element--descr').addClass('parser__element--text-show');
+        }
+    });
+    /*close*/
+
+    /*show parser comments*/
+    $(document).on('click', '.parser__element--tools > .comments', function () {
+        event.preventDefault();
+        var comments = $(this).closest('.parser__element--tools').next();
+        $(this).toggleClass('show-comments');
+        comments.slideToggle();
+        return false;
+    });
+    /*close*/
+
+    /*show shop toolbar menu*/
+    $(document).on('click', '#shop-toolbar-trigger', function () {
+        event.preventDefault();
+        var shopMenu = $(this).next('.shop__top-nav--navigation');
+        /*console.log( shopMenu );*/
+        if($(this).hasClass('show-trigger')){
+            $(this).removeClass('show-trigger');
+            shopMenu.removeClass('show-shop-menu');
+        } else {
+            $(this).addClass('show-trigger');
+            shopMenu.addClass('show-shop-menu');
+        }       
+    });
+    /*close*/
+
+    /*show fixed right toolbar*/
+    $(document).on('click', '.fix-button__trigger', function () {
+       var rigthToolbar = $(this).parent();        
+       if($(this).hasClass('open-fix-toolbar')){
+           $(this).removeClass('open-fix-toolbar');
+           rigthToolbar.removeClass('show-fix-menu');
+       } else {
+           $(this).addClass('open-fix-toolbar');
+           rigthToolbar.addClass('show-fix-menu');
+       }
+    });
+    $(document).on('click', function (e) {
+        if ($(e.target).closest('.fix-button').length != 1) {
+            $('.fix-button').removeClass('show-fix-menu');
+            $('.fix-button__trigger').removeClass('open-fix-toolbar');
+        }
+    });
+    /*close*/
 });
 
 $(window).scroll(function () {
@@ -1062,7 +1148,7 @@ $(window).scroll(function () {
         h = $('body').css('height');
     if (top < 649) {
         /*$('.social-wrapper').addClass('move');
-        $('.social-wrapper').hcSticky();*/
+         $('.social-wrapper').hcSticky();*/
         $('#business-stock-sidebar').addClass('move');
         $('#business-stock-sidebar').hcSticky();
     } else {
@@ -1131,5 +1217,15 @@ function readURL(input) {
 
         reader.readAsDataURL(input.files[0]);
     }
+}
+/*close function*/
+
+/*remove field*/
+function removeField(selector) {
+    var wrapper = selector.closest('.cabinet__add-company-form--hover-wrapper'),//влок в который добовляются поля
+        addedBox = selector.closest('.cabinet__add-company-form--hover-elements'),//элементы, которые добавляются
+        count = wrapper.attr('data-count');//счетчик
+    addedBox.remove();
+    wrapper.attr('data-count', parseInt(count) - 1);//увеличиваем счетчик на 1
 }
 /*close function*/
