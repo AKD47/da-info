@@ -264,6 +264,7 @@
       font-weight: 400;
       text-decoration: underline;
       &:hover{
+        color: #fc716a;
         text-decoration: none;
       }
     }
@@ -418,6 +419,21 @@
       img{
         size: 100%;
         object-fit: cover;
+      }
+    }
+  }
+  &__more{
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    > .show-more{
+      width: 200px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-left: calc(50% - (200px/2));
+      &:hover{
+        color: #fff;
       }
     }
   }

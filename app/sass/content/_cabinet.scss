@@ -327,6 +327,9 @@
         -webkit-background-size: 100% 100%;
         background-size: 100% 100%;
       }
+      .news:hover:before {
+        background-image: url('../img/icons/stack-hover-icon.png');
+      }
       .poster:before {
         display: block;
         position: absolute;
@@ -339,6 +342,9 @@
         background-repeat: no-repeat;
         -webkit-background-size: 100% 100%;
         background-size: 100% 100%;
+      }
+      .poster:hover:before {
+        background-image: url('../img/icons/calendar-cabinet--hover-icon.png');
       }
       .stock:before {
         display: block;
@@ -353,6 +359,9 @@
         -webkit-background-size: 100% 100%;
         background-size: 100% 100%;
       }
+      .stock:hover:before {
+        background-image: url('../img/icons/bar-graph-hover-icon.png');
+      }
       .configuration:before {
         display: block;
         position: absolute;
@@ -365,6 +374,9 @@
         background-repeat: no-repeat;
         -webkit-background-size: 100% 100%;
         background-size: 100% 100%;
+      }
+      .configuration:hover:before {
+        background-image: url('../img/icons/cog-hover-icon.png');
       }
       .company .add {
         display: inline-block;
@@ -393,6 +405,9 @@
         -webkit-background-size: 100% 100%;
         background-size: 100% 100%;
       }
+      .company:hover:before {
+        background-image: url('../img/icons/tag-hover-icon.png')
+      }
       .comments .add {
         display: inline-block;
         position: absolute;
@@ -419,6 +434,9 @@
         background-repeat: no-repeat;
         -webkit-background-size: 100% 100%;
         background-size: 100% 100%;
+      }
+      .comments:hover:before {
+        background-image: url('../img/icons/paper-icon.png');
       }
       .notice span {
         display: inline-block;
@@ -2038,8 +2056,16 @@
       display: block;
       position: relative;
       float: left;
+      width: calc(100% - 165px);
       /* width: 644px;*/
       margin-bottom: 40px;
+    }
+    &--social-element{
+      display: block;
+      position: relative;
+      float: left;
+      width: 100%;
+      margin-bottom: 15px;
       .social-wrap__item {
         width: 24px;
         height: 24px;
@@ -2055,6 +2081,26 @@
           -ms-transform: translateY(-50%);
           transform: translateY(-50%);
         }
+      }
+      .social-name{
+        display: block;
+        position: relative;
+        float: left;
+        width: 165px;
+        color: #000;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 30px;
+      }
+      .social-way{
+        display: block;
+        position: relative;
+        float: left;
+        width: 238px;
+        height: 30px;
+        border: 1px solid #b8b8b9;
+        padding: 1px 10px;
+        @include box-sizing(border-box);
       }
     }
     &--add-foto {
@@ -2089,6 +2135,7 @@
       width: 128px;
       height: 30px;
       line-height: 11px;
+      margin-top: 20px;
       margin-left: 163px;
       text-align: center;
       text-transform: uppercase;
@@ -2100,6 +2147,52 @@
       background-color: #ee2e24;
       border-radius: 5px;
       border: none;
+    }
+    .file-input{
+      display: block;
+      position: relative;
+      float: left;
+      width: calc(100% - 165px);
+      .close{
+        display: none;
+      }
+    }
+    .file-preview-frame {
+      position: relative;
+      display: block;
+      float: left;
+      width: 30%;
+      height: 176px;
+      margin: 8px;
+      border: 1px solid #ddd;
+      box-shadow: 1px 1px 5px 0 #a2958a;
+      padding: 6px;
+      text-align: center;
+      .kv-file-content {
+        width: 100%;
+        height: calc(100% - 70px);
+        overflow: hidden;
+        .kv-file-content{
+          size: 100%;
+          object-fit: cover;
+        }
+      }
+      .file-drag-handle{
+        display: none;
+      }
+    }
+    .kv-file-zoom{
+      display: none;
+    }
+    .kv-file-upload{
+      display: none;
+    }
+    .fileinput-remove-button{
+      display: none;
+    }
+    .btn-primary{
+      border-color: #ee2e24;
+      background-color: #ee2e24;
     }
   }
   &__consultation {

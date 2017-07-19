@@ -4,7 +4,105 @@
   float: left;
   width: 100%;
   height: calc(100% - (68px + 200px));
-  background-color: #fff;
+  background-color: #edeef0;
+  &__mistake{
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 65px;
+    margin-bottom: 0;
+    color: rgba(13,36,46,0.8);
+    font-size: 60px;
+    font-weight: 700;
+  }
+  &__wrapper{
+    display: block;
+    position: relative;
+    float: left;
+    width: 50%;
+    > .show-more{
+      float: left;
+      margin-top: 20px;
+      &:hover{
+        color: #fff;
+      }
+    }
+  }
+  &__banner{
+    display: block;
+    position: relative;
+    float: left;
+    color: #ff1f1d;
+    font-size: 150px;
+    font-weight: 700;
+  }
+  &__notice{
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    color: #000000;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    > a{
+      color: #ff1f1d;
+      text-decoration: underline;
+      &:hover{
+        color: #ff1f1d;
+        text-decoration: none;
+      }
+    }
+  }
+  &__photo{
+    display: block;
+    position: relative;
+    float: left;
+    width: 50%;
+    margin-top: 90px;
+    padding-left: 42px;
+    padding-right: 42px;
+    @include box-sizing(border-box);
+    img{
+      size: 100%;
+      object-fit: contain;
+    }
+  }
+  &__elements{
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    border-radius: 0 0 3px 3px;
+    background-color: #ffffff;
+    padding-bottom: 54px;
+    @include box-sizing(border-box);
+    margin-top: -166px;
+    margin-bottom: 54px;
+    > .main-title{
+      float: right;
+      margin-right: 62px;
+    }
+    &--news{
+      @include display-flex(flex);
+      @include flex-wrap(wrap);
+      @include flex-direction(row);
+      @include justify-content(flex-start);
+      position: relative;
+      float: left;
+      width: 100%;
+      > .stock__item{
+        width: 270px;
+        margin-top: 11px;
+        margin-bottom: 11px;
+        margin-left: 5px;
+        margin-right: 5px;
+        border: 1px solid rgba(185, 196, 213, 0.48);
+        background-color: #ffffff;
+      }
+    }
+  }
   &__title{
     display: block;
     position: relative;
