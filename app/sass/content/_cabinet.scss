@@ -11,7 +11,7 @@
     float: left;
     width: 220px;
     background-color: #fbfafa;
-    z-index: 5;
+    z-index: 2;
     @include breakpoint(max-width 660px) {
       position: absolute;
       /*z-index: 3;*/
@@ -488,7 +488,7 @@
     width: 100%;
     box-shadow: 2px 4px 8px rgba(48, 56, 87, 0.2);
     background-color: #ffffff;
-    z-index: 2;
+    z-index: 1;
     > h3 {
       position: relative;
       float: left;
@@ -727,7 +727,7 @@
       font-size: 11px;
       font-weight: 100;
       line-height: 19px;
-      z-index: 2;
+      z-index: 1;
       &:first-of-type {
         right: 121px;
         @include breakpoint(max-width 600px){
@@ -1910,6 +1910,43 @@
       margin-bottom: 40px;
       border: 1px solid #b8b8b9;
       padding: 1px 10px;
+      @include box-sizing(border-box);
+      @include breakpoint(max-width 600px) {
+        width: 166px;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    &--select-wrapper-cat{
+      display: block;
+      position: relative;
+      float: left;
+      width: calc(100% - 165px);
+      margin-bottom: 40px;
+      border: 1px solid #b8b8b9;
+      padding: 0;
+      @include box-sizing(border-box);
+      @include breakpoint(max-width 600px) {
+        width: 166px;
+      }
+      &:focus {
+        outline: none;
+      }
+      span.select2-selection.select2-selection--multiple{
+        border: 1px solid transparent;
+        box-shadow: none;
+      }
+    }
+    &--select-wrapper{
+      display: block;
+      position: relative;
+      float: left;
+      width: 238px;
+      margin-bottom: 40px;
+      border: none;
+      border-radius: 0;
+      padding: 0;
       @include box-sizing(border-box);
       @include breakpoint(max-width 600px) {
         width: 166px;
