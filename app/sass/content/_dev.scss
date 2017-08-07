@@ -202,4 +202,47 @@
       }
     }
   }
+  &__tech {
+    position: relative;
+    float: left;
+    background: url('../img/content/dev-tech-bg.png') center center no-repeat;
+    &--title {
+      position: relative;
+      float: left;
+      margin-top: 100px;
+      span{
+        display: block;
+        position: relative;
+        float: left;
+        font-size: 64px;
+        font-weight: 700;
+        color: #e30613;
+        width: 20%;
+        &:last-of-type {
+          width: 80%
+        }
+        img {
+          display: block;
+          position: relative;
+          margin: 0 auto;
+        }
+      }
+      p {
+        position: relative;
+        float: left;
+        color: #515253;
+        font-size: 40px;
+        width: 100%;
+        margin: 40px;
+        clear: both;
+      }
+    }
+    &--img {
+      width: 70%;
+      margin: 0 auto;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
 }
